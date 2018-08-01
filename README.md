@@ -19,7 +19,7 @@
 ### 项目截图
 
 ### 总结
-[基础知识总结]()
+[基础知识总结](https://github.com/fangfeiyue/mini-apps/blob/master/base/base.md)
 
 [项目总结]()
 
