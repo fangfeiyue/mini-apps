@@ -3,4 +3,4 @@
 - command + 快速打开文件
 - command + e 最近打开过的文件
 - 设置开发工具背景、字体大小等
-![设置开发者工具背景、字体大小]()
+![设置开发者工具背景、字体大小](https://github.com/fangfeiyue/mini-apps/blob/master/img/setting.png)
