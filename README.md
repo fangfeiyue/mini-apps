@@ -26,7 +26,7 @@
 ### 彩蛋
 
 - [Octotree](https://github.com/buunguyen/octotree)以树形结构的方式展示Github项目,帮助广大的开发人员更加便捷的浏览与查看代码
-
+- [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)在vscode中用markdown编写文档时的实时预览插件
 ### 个人简介
 
 作者：房飞跃
