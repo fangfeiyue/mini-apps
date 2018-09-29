@@ -1,2 +1,5 @@
 <!--components/like/index.wxml-->
-<image class='container' src='images/like.png'></image>
+<view bind:tap="onLike" class="container">
+  <image src='images/like.png'></image>
+  <text>9</text>
+</view>
