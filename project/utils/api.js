@@ -13,14 +13,14 @@ class API {
       url: `${api_base_url}${params.url}`,
       data: params.data,
       header: {
-        appkey: appkey,
+        appkey,
         'content-type': 'application/json'
       },
       method: params.method || 'GET',
       success: (res)=>{
         let code = res.statusCode.toString();
         if (code.startsWith('2')){
-          params.success(res.data);
+          params.success && params.success(res.data);
         }else {
           const error_code = res.data.error_code;
           this._showError(error_code)
@@ -45,5 +45,4 @@ class API {
   }
 }
 
-const api = new API;
-export { api };
+export { API };

@@ -1,23 +1,35 @@
 // pages/classic.js
-import { api } from '../utils/api.js';
-Page({
+import { ClassicModel } from '../models/classicModel.js';
+import { LikeModel } from '../models/likeModel.js';
+
+const classicModel = new ClassicModel;
+const likeModel = new LikeModel;
+
+Page({ 
 
   /**
    * 页面的初始数据
    */
   data: {
+    classicData: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {    
-    api.request({
-      url: '/classic/latest',
-      success(res){
-        console.log(res);
-      }
+  onLoad: function (options) {
+    classicModel.getLatest(res=>{
+      this.setData({
+        classicData: res
+      });
     });
+  },
+
+  onLike(event){
+    console.log(event);
+    let behavior = event.detail.behavior;
+    const { id, type } = this.data.classicData;
+    likeModel.like(behavior, id, type);
   },
 
   /**

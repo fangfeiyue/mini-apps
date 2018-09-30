@@ -1,0 +1,25 @@
+/* components/movie/index.wxss */
+.movie-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-img {
+  width: 750rpx;
+  height: 500rpx;
+}
+
+.movie-tag {
+  width: 46rpx;
+  height: 142rpx;
+  position: relative;
+  right: 310rpx;
+  bottom: 58rpx;
+}
+
+.movie-content {
+  font-size: 36rpx;
+  /* 文字在没有超过这个长度的时候是自适应的 */
+  max-width: 550rpx;
+}

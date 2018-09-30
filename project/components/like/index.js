@@ -39,7 +39,12 @@ Component({
       this.setData({
         count,
         like: !like
-      });
+       });
+
+      let behavior = this.properties.like ? 'like' : 'cancel';
+      this.triggerEvent('like', {
+        behavior
+      }, {});
     }
   }
 })
