@@ -1,0 +1,8 @@
+<!--components/epsoide/index.wxml-->
+<view class="">
+  <text class="">No.</text>
+  <text class="">{{index}}</text>
+  <text class="">|</text>
+  <text class="">{{month}}</text>
+  <text class="">{{year}}</text>
+</view>
