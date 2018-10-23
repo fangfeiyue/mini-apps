@@ -3,3 +3,4 @@
   <like-cmp class="like" bind:like="onLike" like="{{classicData.like_status}}" count="{{classicData.fav_nums}}"/>
 </view>
 <movie-cmp img="{{classicData.image}}" content="{{classicData.content}}"/>
+<navi-cmp />
