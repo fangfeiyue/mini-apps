@@ -24,7 +24,7 @@ Page({
       });
     });
   },
-
+  
   onLike(event){
     console.log(event);
     let behavior = event.detail.behavior;
