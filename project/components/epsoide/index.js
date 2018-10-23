@@ -4,7 +4,6 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    index1: String,
     index: {
       type: String,
       observer: function(newVal, oldVal, changePath){
@@ -22,12 +21,19 @@ Component({
   data: {
     year: 0,
     month: '',
-    _index: ''
+    _index: '',
+    months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
   },
 
   attached(){
-    console.log(this.properties);
-    console.log(this.data);
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth();
+
+    this.setData({
+      year,
+      month: this.data.months[month]
+    });
   },
 
   /**
