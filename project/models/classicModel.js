@@ -7,18 +7,26 @@ class ClassicModel extends API {
       success:(res)=>{
         callBack(res);
         this._setLatestIndex(res.index);
+        wx.setStorageSync(this._getKey(index), res);
       }
     });
   }
   
   getClassic(callBack, index, nextOrPre){
+    let key = nextOrPre == 'next' ? this._getKey(index + 1) : this._getKey(index - 1);
+    let classic = wx.getStorageInfo(key);
 
-    this.request({
-      url: `/classic/${index}/${nextOrPre}`,
-      success:(res)=>{
-        callBack(res);
-      }
-    });
+    if (!classic){
+      this.request({
+        url: `/classic/${index}/${nextOrPre}`,
+        success:(res)=>{
+          wx.setStorageSync(key, res);
+          callBack(res);
+        }
+      });
+    }else {
+      callBack(res);
+    }
   }
   
   isFirst(index){
@@ -36,6 +44,10 @@ class ClassicModel extends API {
   
   _getLatestIndex(){
     return wx.getStorageSync('latest');
+  }
+
+  _getKey(index){
+    return `classic-${index}`;
   }
 }
 
