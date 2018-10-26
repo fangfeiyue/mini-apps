@@ -35,7 +35,7 @@ Page({
   },
 
   onNext(){
-
+    
   },
  
   onPrevious(){

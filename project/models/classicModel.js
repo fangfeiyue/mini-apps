@@ -17,6 +17,12 @@ class ClassicModel extends API {
       }
     });
   }
+  isFirst(index){
+    return index == 1 ? true : false;
+  }
+  isLatest(index){
+    
+  }
 }
 
 export { ClassicModel };
