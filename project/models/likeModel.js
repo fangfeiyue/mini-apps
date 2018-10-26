@@ -13,6 +13,15 @@ class LikeModel extends API {
       }
     });
   }
+
+  getClassicLikeStatus(artID, category, callBack){
+    const url = `classic/${category}/${artID}/favor`;
+    this.request({
+      url,
+      method: "GET",
+      success: callBack
+    });
+  }
 }
 
 export { LikeModel };
