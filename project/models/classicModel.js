@@ -9,6 +9,14 @@ class ClassicModel extends API {
       }
     });
   }
+  getPrevious(callBack, index){
+    this.request({
+      url: `/classic/${index}/previous`,
+      success:(res)=>{
+        callBack(res);
+      }
+    });
+  }
 }
 
 export { ClassicModel };

@@ -39,7 +39,12 @@ Page({
   },
  
   onPrevious(){
-     
+    let { index } = this.data.classicData;
+    classicModel.getPrevious(res=>{
+      this.setData({
+        classicData: res
+      });
+    }, index);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
