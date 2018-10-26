@@ -7,7 +7,7 @@ class ClassicModel extends API {
       success:(res)=>{
         callBack(res);
         this._setLatestIndex(res.index);
-        wx.setStorageSync(this._getKey(index), res);
+        wx.setStorageSync(this._getKey(res.index), res);
       }
     });
   }
