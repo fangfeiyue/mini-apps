@@ -35,16 +35,22 @@ Page({
   },
 
   onNext(){
-    
+    this._updateClassic('next');
   },
- 
+
   onPrevious(){
+    this._updateClassic('previous');
+  },
+
+  _updateClassic(nextOrPre){
     let { index } = this.data.classicData;
-    classicModel.getPrevious(res=>{
+    classicModel.getClassic(res=>{
       this.setData({
-        classicData: res
+        classicData: res,
+        latest: classicModel.isLatest(res.index),
+        first: classicModel.isFirst(res.index)
       });
-    }, index);
+    }, index, nextOrPre); 
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
