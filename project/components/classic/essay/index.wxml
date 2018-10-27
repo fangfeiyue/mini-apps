@@ -1,2 +1,2 @@
 <!--components/classic/essay/index.wxml-->
-<text>components/classic/essay/index.wxml</text>
+<text hidden="{{hidden}}" >components/classic/essay/index.wxml</text>

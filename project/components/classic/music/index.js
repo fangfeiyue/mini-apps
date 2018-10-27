@@ -1,8 +1,12 @@
 // components/classic/music/index.js
+
+import { classicBeh } from '../classic-beh';
+
 Component({
   /**
    * Component properties
    */
+  behaviors: [classicBeh],
   properties: {
     img: String,
     content: String
