@@ -1,1 +1,26 @@
 /* components/classic/essay/index.wxss */
+/* components/movie/index.wxss */
+.essay-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.essay-img {
+  width: 750rpx;
+  height: 500rpx;
+}
+
+.essay-tag {
+  width: 46rpx;
+  height: 142rpx;
+  position: relative;
+  right: 310rpx;
+  bottom: 58rpx;
+}
+
+.essay-content {
+  font-size: 36rpx;
+  /* 文字在没有超过这个长度的时候是自适应的 */
+  max-width: 550rpx;
+}
