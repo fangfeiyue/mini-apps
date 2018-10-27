@@ -28,7 +28,6 @@ Page({
   },
   
   onLike(event){
-    console.log(event);
     let behavior = event.detail.behavior;
     const { id, type } = this.data.classicData;
     likeModel.like(behavior, id, type);
@@ -56,16 +55,12 @@ Page({
 
   _getLikeStatus(artID, category){
     likeModel.getClassicLikeStatus(artID, category, res=>{
-      console.log('pre', this.data.classicData)
       this.setData({
         classicData: {
           ...this.data.classicData,
           like_status: res.like_status,
-          fav_nums: res.fav_nums
+          fav_nums: res.fav_nums 
         }
-      },()=>{
-        console.log('res', res)
-        console.log('latest', this.data.classicData)
       });
     });
   },
