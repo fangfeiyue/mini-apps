@@ -14,8 +14,9 @@ class ClassicModel extends API {
   
   getClassic(callBack, index, nextOrPre){
     let key = nextOrPre == 'next' ? this._getKey(index + 1) : this._getKey(index - 1);
-    let classic = wx.getStorageInfo(key);
-
+    let classic = wx.getStorageSync(key);
+    console.log('key',key)
+    console.log('classic',classic);
     if (!classic){
       this.request({
         url: `/classic/${index}/${nextOrPre}`,
@@ -25,7 +26,7 @@ class ClassicModel extends API {
         }
       });
     }else {
-      callBack(res);
+      callBack(classic);
     }
   }
   

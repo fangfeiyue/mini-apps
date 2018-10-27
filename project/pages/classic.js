@@ -52,6 +52,16 @@ Page({
       });
     }, index, nextOrPre); 
   },
+
+  _getLikeStatus(artID, category){
+    likeModel.getClassicLikeStatus(artID, category, res=>{
+      this.setData({
+        ...this.data.classicData,
+        like_status: '',
+        fav_nums: ''
+      });
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
