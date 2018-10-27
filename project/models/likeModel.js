@@ -15,7 +15,7 @@ class LikeModel extends API {
   }
 
   getClassicLikeStatus(artID, category, callBack){
-    const url = `classic/${category}/${artID}/favor`;
+    const url = `/classic/${category}/${artID}/favor`;
     this.request({
       url,
       method: "GET",

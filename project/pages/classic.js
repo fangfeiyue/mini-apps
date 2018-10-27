@@ -45,6 +45,7 @@ Page({
   _updateClassic(nextOrPre){
     let { index } = this.data.classicData;
     classicModel.getClassic(res=>{
+      this._getLikeStatus(res.id, res.type);
       this.setData({
         classicData: res,
         latest: classicModel.isLatest(res.index),
@@ -55,10 +56,16 @@ Page({
 
   _getLikeStatus(artID, category){
     likeModel.getClassicLikeStatus(artID, category, res=>{
+      console.log('pre', this.data.classicData)
       this.setData({
-        ...this.data.classicData,
-        like_status: '',
-        fav_nums: ''
+        classicData: {
+          ...this.data.classicData,
+          like_status: res.like_status,
+          fav_nums: res.fav_nums
+        }
+      },()=>{
+        console.log('res', res)
+        console.log('latest', this.data.classicData)
       });
     });
   },
