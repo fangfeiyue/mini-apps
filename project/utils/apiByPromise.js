@@ -7,7 +7,7 @@ const tips = {
 };
 
 class API {
-  request(url, data, method) {
+  request({url, data={}, method="GET"}) {
     return new Promise((resolve, reject)=>{
       this._request(resolve, reject, url, data, method);
     });
@@ -46,7 +46,7 @@ class API {
     }
 
     wx.showToast({
-      title: tips[error_code],
+      title: tips[error_code] ? tips[error_code] : tips[1],
       icon: 'none',
       duration: 2000
     });
