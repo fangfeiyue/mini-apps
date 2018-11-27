@@ -1,6 +1,6 @@
 // pages/classic.js
-import { ClassicModel } from '../models/classicModel.js';
-import { LikeModel } from '../models/likeModel.js';
+import { ClassicModel } from '../../models/classicModel.js';
+import { LikeModel } from '../../models/likeModel.js';
 
 const classicModel = new ClassicModel;
 const likeModel = new LikeModel;
