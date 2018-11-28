@@ -1,5 +1,11 @@
 // components/tag/index.js
 Component({
+
+  // 如果slot使用name属性命名了，必须配置这个
+  options: {
+    multipleSlots: true
+  },
+
   /**
    * 组件的属性列表
    */

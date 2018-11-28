@@ -53,3 +53,9 @@
   margin-right: 15rpx;
   margin-bottom: 10rpx;
 }
+
+.comment-container .num {
+  margin-left: 5px;
+  font-size: 22rpx;
+  color: #aaa;
+}
