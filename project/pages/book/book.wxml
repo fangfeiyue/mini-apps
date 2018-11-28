@@ -1,2 +1,17 @@
 <!--pages/book/book.wxml-->
-<book-cmp book="{{books[0]}}"></book-cmp>
+<view class="container">
+  <view class="header">
+    <view class="box">
+      <image src="/images/icon/search.png" />
+      <text>搜索书籍</text>
+    </view>
+  </view>
+  <view class="sub-container">
+    <image class="head-img" src="/images/book/quality.png" />
+    <view class="books-container">
+      <block wx:for="{{books}}">
+        <book-cmp book="{{item}}"></book-cmp>
+      </block>
+    </view>
+  </view>
+</view>
