@@ -18,6 +18,20 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    goBookDetail(){
+      console.log(this.properties.book.id);
+      wx.navigateTo({
+        url: '../../pages/book-detail/book-detail?id=' + this.properties.book.id,
+        success: function(res){
+          // success
+        },
+        fail: function() {
+          // fail
+        },
+        complete: function() {
+          // complete
+        }
+      })
+    }
   }
 })

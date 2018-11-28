@@ -14,6 +14,35 @@ class BookModel extends API {
       url: '/book/favor/count'
     });
   }
+
+  getBookDetail(id){
+    return this.request({
+      url: `/book/${id}/detail`
+    });
+  }
+
+  getLikeStatus(id){
+    return this.request({
+      url: `/book/${id}/favor`
+    });
+  }
+
+  getComment(id){
+    return this.request({
+      url: `/book/${id}/short_comment`
+    });
+  }
+
+  postComment(book_id, content){
+    return this.request({
+      url: `/book/add/short_comment`,
+      method: 'POST',
+      data: {
+        book_id,
+        content
+      }
+    });
+  }
 }
 
 export { BookModel };
