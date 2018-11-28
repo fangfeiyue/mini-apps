@@ -10,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    comment:[],
+    comments:[],
     bookDetail: null,
     likeStatus: false,
     likeCount: 0
@@ -27,7 +27,7 @@ Page({
 
     comment.then(res=>{
       this.setData({
-        comment: res.comments
+        comments: res.comments
       });
     });
 

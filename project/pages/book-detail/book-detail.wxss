@@ -30,3 +30,26 @@
   height: 300rpx;
   box-shadow: 2px 2px 3px #e3d3d3;
 }
+
+.sub-container {
+  width: 690rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30rpx;
+  background-color: #fff;
+  padding: 30rpx;
+}
+
+.headline {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #2f2f2f;
+  margin-bottom: 20rpx;
+}
+
+.comment-container tag-cmp {
+  display: inline-block;
+  margin-right: 15rpx;
+  margin-bottom: 10rpx;
+}
