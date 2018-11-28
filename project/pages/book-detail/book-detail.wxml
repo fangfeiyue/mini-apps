@@ -1,2 +1,8 @@
 <!--pages/book-detail/book-detail.wxml-->
-<text>pages/book-detail/book-detail.wxml</text>
+<view class="container">
+  <view class="head">
+    <image src="{{bookDetail.image}}"/>
+    <text class="title">{{bookDetail.title}}</text>
+    <text class="author">{{bookDetail.author}}</text>
+  </view>
+</view>

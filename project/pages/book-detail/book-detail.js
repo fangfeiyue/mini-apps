@@ -12,7 +12,8 @@ Page({
   data: {
     comment:[],
     bookDetail: null,
-    likeStatus: false
+    likeStatus: false,
+    likeCount: 0
   },
 
   /**
@@ -38,6 +39,7 @@ Page({
 
     likeStatus.then(res=>{
       this.setData({
+        likeCount: res.fav_nums,
         likeStatus: res.like_status
       });
     });

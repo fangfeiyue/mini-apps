@@ -13,7 +13,7 @@ class BookModel extends API {
     return this.request({
       url: '/book/favor/count'
     });
-  }
+  } 
 
   getBookDetail(id){
     return this.request({
