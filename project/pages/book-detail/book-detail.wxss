@@ -59,3 +59,11 @@
   font-size: 22rpx;
   color: #aaa;
 }
+
+.comment-container > tag-cmp:nth-child(1) > view {
+  background-color: #fffbdd;
+}
+
+.comment-container > tag-cmp:nth-child(2) > view {
+  background-color: #eefbff;
+}
