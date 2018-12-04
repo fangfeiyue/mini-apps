@@ -8,11 +8,16 @@
   <view class="sub-container">
     <text class="headline">短评</text>
     <view class="comment-container">
-      <block wx:for="{{comments}}" wx:key="">
-        <tag-cmp text="{{item.content}}">
+      <block wx:for="{{comments}}" wx:key="index">
+        {{index}}
+        <tag-cmp tag-class="{{index==0?'ex-tag':''}}" text="{{item.content}}">
           <text class="num">+{{item.nums}}</text>
         </tag-cmp>
       </block>
     </view>
+  </view>
+  <view class="sub-container">
+    <text class="headline">内容简介</text>
+    <text class="content">{{bookDetail.summary}}</text>
   </view>
 </view>
