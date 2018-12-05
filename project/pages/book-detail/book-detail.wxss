@@ -71,3 +71,8 @@
 .ex-tag {
   color: red !important;
 }
+
+.content {
+  text-indent: 58rpx;
+  font-weight: 500;
+}
