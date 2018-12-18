@@ -15,7 +15,8 @@ Page({
     comments:[],
     bookDetail: null,
     likeStatus: false,
-    likeCount: 0
+    likeCount: 0,
+    posting: false
   },
 
   /**
@@ -50,6 +51,18 @@ Page({
   onLike(event){
     const like_or_cancel = event.detail.behavior;
     likeModel.like(like_or_cancel, this.data.bookDetail.id, 400);
+  },
+
+  onFakePost(){
+    this.setData({
+      posting: true
+    });
+  },
+
+  onCancel(){
+    this.setData({
+      posting: false
+    });
   },
 
   /**
