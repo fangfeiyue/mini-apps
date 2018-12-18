@@ -4,8 +4,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    title: String,
-    first: Boolean,
+    title : String,
+    first : Boolean,
     latest: Boolean
   },
 
@@ -13,9 +13,9 @@ Component({
    * 组件的初始数据
    */
   data: {
-    leftSrc: './images/triangle@left.png',
-    rightSrc: './images/triangle@right.png',
-    disLeftSrc: './images/triangle.dis@left.png',
+    leftSrc    : './images/triangle@left.png',
+    rightSrc   : './images/triangle@right.png',
+    disLeftSrc : './images/triangle.dis@left.png',
     disRightSrc: './images/triangle.dis@right.png',
   },
 
