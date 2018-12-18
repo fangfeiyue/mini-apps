@@ -2,23 +2,31 @@
 <wxs src="../../utils/filter.wxs" module="util"></wxs>
 <view class="container">
   <view class="head">
-    <image src="{{bookDetail.image}}"/>
+    <image src="{{bookDetail.image}}" />
     <text class="title">{{bookDetail.title}}</text>
     <text class="author">{{bookDetail.author}}</text>
   </view>
   <view class="sub-container">
     <text class="headline">短评</text>
     <view class="comment-container">
-      <block wx:for="{{comments}}" wx:key="index">
-        {{index}}
-        <tag-cmp tag-class="{{index==0?'ex-tag':''}}" text="{{item.content}}">
+      <block wx:for="{{util.limit(comments, 5)}}" wx:key="index">
+        <tag-cmp tag-class="{{ml.getClass(index)}}" text="{{item.content}}">
           <text class="num">+{{item.nums}}</text>
         </tag-cmp>
       </block>
     </view>
   </view>
   <view class="sub-container">
-    <text class="headline">内容简介</text>
+    <text class="headline">内容简介{{ml.message}}</text>
     <text class="content" decode="{{true}}">{{util.filter(bookDetail.summary)}}</text>
   </view>
 </view>
+<wxs module="ml">
+  function getClass(index){
+    return index==0 || index==1 ? 'ex-tag' : '';
+  }
+
+  module.exports = {
+    getClass: getClass
+  };
+</wxs>

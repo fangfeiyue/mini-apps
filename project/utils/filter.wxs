@@ -1,9 +1,13 @@
 function filter(text){
-  // console.log('text=111==>', text)
   var reg = getRegExp('\\\\n', 'g');
   return text && text.replace(reg, '\n&nbsp;&nbsp;&nbsp;&nbsp;');
 }
 
+function limit(arr, length){
+  return arr && arr.splice(0, length);
+}
+
 module.exports = {
+  limit : limit,
   filter: filter
 };
