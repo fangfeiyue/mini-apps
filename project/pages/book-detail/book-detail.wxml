@@ -46,7 +46,7 @@
     <text>输入短评</text>
   </view>
   <view class="like-container">
-    <like-cmp bind:like="onLike" class="like" like="{{likeStatus}}" count="likeCount"/>
+    <like-cmp bind:like="onLike" class="like" like="{{likeStatus}}" count="{{likeCount}}"/>
   </view>
 </view>
 
@@ -57,7 +57,7 @@
   </view>
   <view class="comment-container">
     <block wx:for="{{util.limit(comments, 3)}}" wx:key="index">
-      <tag-cmp tag-class="{{ml.getClass(index)}}" text="{{item.content}}">
+      <tag-cmp tag-class="{{tool.highlight(index)}}" text="{{item.content}}">
         <text class="num">+{{item.nums}}</text>
       </tag-cmp>
     </block>
@@ -65,12 +65,12 @@
   <input type="text" placeholder="短评最多12个字" class="post"/>
 </view>
 
-<wxs module="ml">
-  function getClass(index){
+<wxs module="tool">
+  function highlight(index){
     return index == 0 ? 'ex-tag1' : index == 1 ? 'ex-tag2' : '';
   }
 
   module.exports = {
-    getClass: getClass
+    highlight: highlight
   };
 </wxs>
