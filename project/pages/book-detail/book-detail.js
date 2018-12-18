@@ -1,8 +1,10 @@
 // pages/book-detail/book-detail.js
 
 import { BookModel } from '../../models/bookModel';
+import { LikeModel } from '../../models/likeModel';
 
 const bookModel = new BookModel;
+const likeModel = new LikeModel;
 
 Page({
 
@@ -43,6 +45,11 @@ Page({
         likeStatus: res.like_status
       });
     });
+  },
+
+  onLike(event){
+    const like_or_cancel = event.detail.behavior;
+    likeModel.like(like_or_cancel, this.data.bookDetail.id, 400);
   },
 
   /**
@@ -93,4 +100,7 @@ Page({
   onShareAppMessage: function () {
 
   }
+
+  // 东西很好没瑕疵，性价比高
+  // 做工比较精细还不错
 })

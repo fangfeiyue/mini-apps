@@ -20,10 +20,39 @@
     <text class="headline">内容简介{{ml.message}}</text>
     <text class="content" decode="{{true}}">{{util.filter(bookDetail.summary)}}</text>
   </view>
+  <view class="sub-container">
+    <text class="headline">书本信息</text>
+    <view class="detail-container">
+      <view class="vertical description">
+        <text>出版社</text>
+        <text>出版年</text>
+        <text>页数</text>
+        <text>定价</text>
+        <text>装帧</text>
+      </view>
+      <view class="vertical">
+        <text>{{bookDetail.publisher}}</text>
+        <text>{{bookDetail.pubdate}}</text>
+        <text>{{bookDetail.pages}}</text>
+        <text>{{bookDetail.price}}</text>
+        <text>{{bookDetail.binding}}</text>
+      </view>
+    </view>
+  </view>
 </view>
+
+<view class="post-container">
+  <view class="post-fake">
+    <text>输入短评</text>
+  </view>
+  <view class="like-container">
+    <like-cmp bind:like="onLike" class="like" like="{{likeStatus}}" count="likeCount"/>
+  </view>
+</view>
+
 <wxs module="ml">
   function getClass(index){
-    return index==0 || index==1 ? 'ex-tag' : '';
+    return index == 0 ? 'ex-tag1' : index == 1 ? 'ex-tag2' : '';
   }
 
   module.exports = {
