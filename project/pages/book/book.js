@@ -11,7 +11,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    books: []
+    books: [],
+    searching: false
   },
 
   /**
@@ -22,6 +23,18 @@ Page({
       this.setData({
         books: res
       });
+    });
+  },
+
+  onTap(){
+    this.setData({
+      searching: true
+    });
+  },
+
+  cancelSearch(){
+    this.setData({
+      searching: false
     });
   },
 
@@ -43,7 +56,9 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    this.setData({
+      searching: false
+    });
   },
 
   /**
