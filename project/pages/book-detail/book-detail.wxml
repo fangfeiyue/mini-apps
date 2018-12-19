@@ -7,9 +7,10 @@
     <text class="author">{{bookDetail.author}}</text>
   </view>
   <view class="sub-container">
-    <text class="headline">短评</text>
-    <view class="comment-container">
-      <block wx:for="{{util.limit(comments, 5)}}" wx:key="index">
+    <text class="headline">短评</text> 
+    <text wx:if="{{comments&&comments.length<=0}}" class="shadow">还没有短评</text>
+    <view wx:if="{{comments&&comments.length>0}}" class="comment-container">
+      <block wx:for="{{util.limit(comments, 10)}}" wx:key="index">
         <tag-cmp tag-class="{{tool.highlight(index)}}" text="{{item.content}}">
           <text class="num">+{{item.nums}}</text>
         </tag-cmp>
@@ -17,7 +18,7 @@
     </view>
   </view>
   <view class="sub-container">
-    <text class="headline">内容简介{{ml.message}}</text>
+    <text class="headline">内容简介</text>
     <text class="content" decode="{{true}}">{{util.filter(bookDetail.summary)}}</text>
   </view>
   <view class="sub-container">
@@ -52,7 +53,7 @@
 
 <view class="posting-container" wx:if="{{posting}}">
   <view class="post-header">
-    <text>仅可点击标签+1</text>
+    <text>{{tool.setCommentHeader(comments)}}</text>
     <text class="cancel" bind:tap="onCancel">取消</text>
   </view>
   <view class="comment-container">
@@ -62,7 +63,7 @@
       </tag-cmp>
     </block>
   </view>
-  <input type="text" placeholder="短评最多12个字" class="post"/>
+  <input bindconfirm="onPost" type="text" placeholder="短评最多12个字" class="post"/>
 </view>
 
 <mask-cmp wx:if="{{posting}}"/>
@@ -72,7 +73,12 @@
     return index == 0 ? 'ex-tag1' : index == 1 ? 'ex-tag2' : '';
   }
 
+  function setCommentHeader(comments){
+    return comments ? "仅可点击标签+1" : "暂无标签";
+  }
+
   module.exports = {
-    highlight: highlight
+    highlight: highlight,
+    setCommentHeader: setCommentHeader
   };
 </wxs>

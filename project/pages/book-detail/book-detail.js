@@ -49,11 +49,12 @@ Page({
   },
 
   onPost(event){
-    const comment = event.detail.text;
+    let comment = event.detail.text || event.detail.value || '';
+    comment = comment.trim();
     
-    if (comment&&comment.length > 12) {
+    if (!comment || comment&&comment.length > 12) {
       wx.showToast({
-        title: '短评最多12个字',
+        title: !comment ? '短评内容不能为空' : '短评最多12个字',
         icon: 'none'
       });
       return;
@@ -69,10 +70,11 @@ Page({
         content: comment,
         nums: 1
       });
-      
+
       this.setData({
+        posting: false,
         comments: this.data.comments
-      }); 
+      });
     });
   },
 
