@@ -23,28 +23,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading();
     const { id }     = options;
     const comment    = bookModel.getComment(id);
     const bookDetail = bookModel.getBookDetail(id);
     const likeStatus = bookModel.getLikeStatus(id);
 
-    comment.then(res=>{
+    Promise.all([comment, bookDetail, likeStatus]).then(res=>{
+      console.log('res', res);
       this.setData({
-        comments: res.comments
+        comments: res[0],
+        bookDetail: res[1],
+        likeCount: res[2].fav_nums,
+        likeStatus: res[2].like_status
       });
-    });
 
-    bookDetail.then(res=>{
-      this.setData({
-        bookDetail: res
-      });
-    });
-
-    likeStatus.then(res=>{
-      this.setData({
-        likeCount: res.fav_nums,
-        likeStatus: res.like_status
-      });
+      wx.hideLoading();
     });
   },
 
