@@ -10,7 +10,7 @@
     <text class="headline">短评</text>
     <view class="comment-container">
       <block wx:for="{{util.limit(comments, 5)}}" wx:key="index">
-        <tag-cmp tag-class="{{ml.getClass(index)}}" text="{{item.content}}">
+        <tag-cmp tag-class="{{tool.highlight(index)}}" text="{{item.content}}">
           <text class="num">+{{item.nums}}</text>
         </tag-cmp>
       </block>
@@ -57,7 +57,7 @@
   </view>
   <view class="comment-container">
     <block wx:for="{{util.limit(comments, 3)}}" wx:key="index">
-      <tag-cmp tag-class="{{tool.highlight(index)}}" text="{{item.content}}">
+      <tag-cmp bind:tapping="onPost" tag-class="{{tool.highlight(index)}}" text="{{item.content}}">
         <text class="num">+{{item.nums}}</text>
       </tag-cmp>
     </block>
