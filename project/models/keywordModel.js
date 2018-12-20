@@ -1,6 +1,6 @@
-class KeyWordModel {
+class KeywordModel {
   key = 'q';
-  maxLength = 2;
+  maxLength = 10;
 
   getHistory(){
     return wx.getStorageSync(this.key) || [];
@@ -16,7 +16,7 @@ class KeyWordModel {
 
     if (!has){
 
-      if (historySearch.length > this.maxLength){
+      if (historySearch.length >= this.maxLength){
         historySearch.pop();
       }
 
@@ -25,3 +25,5 @@ class KeyWordModel {
     }
   }
 }
+
+export { KeywordModel };
