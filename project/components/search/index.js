@@ -6,17 +6,25 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    historyKeyword: []
+    hotWord: [],
+    historyWord: []
   },
 
-  
+  attached(){
+    this.setData({
+      historyWord: keyword.getHistory()
+    });
+
+    keyword.getHot().then(res => this.setData({
+      hotWord: res.hot
+    }));
+  },
 
   /**
    * 组件的方法列表

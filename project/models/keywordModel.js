@@ -1,4 +1,6 @@
-class KeywordModel {
+import { API } from '../utils/apiByPromise';
+
+class KeywordModel extends API {
   key = 'q';
   maxLength = 10;
 
@@ -7,7 +9,9 @@ class KeywordModel {
   }
 
   getHot(){
-
+    return this.request({
+      url: '/book/hot_keyword'
+    });
   }
 
   addToHistory(keyword){
