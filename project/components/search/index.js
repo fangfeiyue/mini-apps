@@ -39,7 +39,11 @@ Component({
     onCancel(){
       this.triggerEvent('cancel', {}, {});
     },
-    
+    onDelete(event){
+      this.setData({
+        searching: false
+      });
+    },
     onConfirm(event){
       const searchVal = event.detail.value;
 
