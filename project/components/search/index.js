@@ -44,15 +44,8 @@ Component({
         searching: false
       });
     },
-    clickTagSearch(event){
-      const searchContent = event.detail.text;
-      this._handleSearch(searchContent);
-    },
     onConfirm(event){
-      const searchContent = event.detail.value;
-      this._handleSearch(searchContent);
-    },
-    _handleSearch(searchContent){
+      const searchContent = event.detail.value || event.detail.text;
       this.setData({
         searching: true
       });

@@ -17,7 +17,7 @@
       </view>
       <view class="tags">
         <block wx:for="{{historyWord}}" wx:key="{{index}}">
-          <tag-cmp bindtapping="clickTagSearch" text="{{item}}"/>
+          <tag-cmp bindtapping="onConfirm" text="{{item}}"/>
         </block>
       </view>
     </view>
@@ -28,7 +28,7 @@
       </view>
       <view class="tags">
         <block wx:for="{{hotWord}}" wx:key="{{index}}">
-          <tag-cmp bindtapping="clickTagSearch" text="{{item}}"/>
+          <tag-cmp bindtapping="onConfirm" text="{{item}}"/>
         </block>
       </view>
     </view>
