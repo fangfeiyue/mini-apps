@@ -44,18 +44,24 @@ Component({
         searching: false
       });
     },
+    clickTagSearch(event){
+      const searchContent = event.detail.text;
+      this._handleSearch(searchContent);
+    },
     onConfirm(event){
-      const searchVal = event.detail.value;
-
+      const searchContent = event.detail.value;
+      this._handleSearch(searchContent);
+    },
+    _handleSearch(searchContent){
       this.setData({
         searching: true
       });
 
-      bookModel.search(0, searchVal).then(res=>{
+      bookModel.search(0, searchContent).then(res=>{
         this.setData({
           booksArray: res.books
         });
-        keyword.addToHistory(searchVal);
+        keyword.addToHistory(searchContent);
       });
     }
   }
