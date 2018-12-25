@@ -17,6 +17,7 @@ Component({
    */
   data: {
     hotWord: [],
+    inputVal: '',
     booksArray: [],
     historyWord: [],
     searching: false
@@ -52,6 +53,7 @@ Component({
 
       bookModel.search(0, searchContent).then(res=>{
         this.setData({
+          inputVal: searchContent,
           booksArray: res.books
         });
         keyword.addToHistory(searchContent);
