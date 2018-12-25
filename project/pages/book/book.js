@@ -11,6 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    more: false,
     books: [],
     searching: false
   },
@@ -79,7 +80,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.setData({
+      more: true
+    });
   },
 
   /**
