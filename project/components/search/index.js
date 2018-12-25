@@ -1,6 +1,10 @@
 // components/search/index.js
-import { KeywordModel } from '../../models/keywordModel'
-const keyword = new KeywordModel;
+import { BookModel } from '../../models/bookModel';
+import { KeywordModel } from '../../models/keywordModel';
+
+const keyword   = new KeywordModel;
+const bookModel = new BookModel;
+
 Component({
   /**
    * 组件的属性列表
@@ -13,7 +17,9 @@ Component({
    */
   data: {
     hotWord: [],
-    historyWord: []
+    booksArray: [],
+    historyWord: [],
+    searching: false
   },
 
   attached(){
@@ -35,8 +41,18 @@ Component({
     },
     
     onConfirm(event){
-      const inputVal = event.detail.value;
-      keyword.addToHistory(inputVal);
+      const searchVal = event.detail.value;
+
+      this.setData({
+        searching: true
+      });
+
+      bookModel.search(0, searchVal).then(res=>{
+        this.setData({
+          booksArray: res.books
+        });
+        keyword.addToHistory(searchVal);
+      });
     }
   }
 })
