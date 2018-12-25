@@ -9,6 +9,16 @@ class BookModel extends API {
     });
   }
 
+  search(start, q){
+    return this.request({
+      url: 'book/search?summay=1',
+      data: {
+        q,
+        start
+      }
+    });
+  }
+
   getMyBookCount(){
     return this.request({
       url: '/book/favor/count'
