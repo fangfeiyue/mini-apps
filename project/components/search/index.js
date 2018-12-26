@@ -10,7 +10,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    more: Boolean
+    more: {
+      type: String,
+      value: '',
+      observer: '_loadMore'
+    }
   },
 
   /**
@@ -38,6 +42,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    _loadMore(){
+      console.log('加载更多')
+    },
     onCancel(){
       this.triggerEvent('cancel', {}, {});
     },
