@@ -43,7 +43,15 @@ Component({
    */
   methods: {
     _loadMore(){
-      console.log('加载更多')
+      if (!this.data.inputVal||this.data.booksArray.length<=0) return;
+
+      const length = this.data.booksArray.length;
+      
+      bookModel.search(length, this.data.inputVal).then(res => {
+        this.setData({
+          booksArray: [...this.data.booksArray, ...res.books]
+        });
+      });
     },
     onCancel(){
       this.triggerEvent('cancel', {}, {});
