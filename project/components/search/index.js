@@ -116,11 +116,15 @@ Component({
     },
 
     _locked(){
-      this.data.loading = true;
+      this.setData({
+        loading: true
+      });
     },
 
     _unLocked(){
-      this.data.loading = false;
+      this.setData({
+        loading: false
+      });
     },
 
     _isLocked(){

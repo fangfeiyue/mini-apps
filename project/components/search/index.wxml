@@ -41,5 +41,5 @@
   </view>
 
   <loading-cmp class="loading-center" wx:if="{{loadingCenter}}"/>
-  <!-- <loading-cmp/> -->
+  <loading-cmp class="loading" wx:if="{{loading}}"/>
 </view>
