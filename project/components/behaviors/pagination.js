@@ -1,6 +1,7 @@
 const paginationBev = Behavior({
   data: {
     total: null,
+    loading: false,
     booksArray: [],
     emptyResult: false
   },
@@ -40,6 +41,21 @@ const paginationBev = Behavior({
         booksArray : [],
         emptyResult: false
       });
+    },
+    locked(){
+      this.setData({
+        loading: true
+      });
+    },
+
+    unLocked(){
+      this.setData({
+        loading: false
+      });
+    },
+
+    isLocked(){
+      return this.data.loading ? true : false;
     }
   },
 });

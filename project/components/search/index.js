@@ -34,7 +34,6 @@ Component({
     // booksArray: [],
     historyWord: [],
     searching: false,
-    loading: false,
     loadingCenter: false
   },
 
@@ -53,14 +52,14 @@ Component({
    */
   methods: {
     loadMore(){
-      if (!this.data.inputVal || this.data.booksArray.length<=0 || this._isLocked()) return;
+      if (!this.data.inputVal || this.data.booksArray.length<=0 || this.isLocked()) return;
       if (this.hasMore()){
-        this._locked();
+        this.locked();
         bookModel.search(this.getCurrStart(), this.data.inputVal).then(res => {
           this.setMoreData(res.books);
           this.setTotal(res.total);
-          this._unLocked();
-        }, () => this._unLocked());
+          this.unLocked();
+        }, () => this.unLocked());
       }
     },
 
@@ -115,22 +114,6 @@ Component({
       this.setData({
         searching: false
       });
-    },
-
-    _locked(){
-      this.setData({
-        loading: true
-      });
-    },
-
-    _unLocked(){
-      this.setData({
-        loading: false
-      });
-    },
-
-    _isLocked(){
-      return this.data.loading ? true : false;
     }
   }
 })
