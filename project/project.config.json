@@ -15,6 +15,11 @@
 	"appid": "wxd12a069c7378ed89",
 	"projectname": "project",
 	"isGameTourist": false,
+	"scripts": {
+		"beforeCompile": "",
+		"beforePreview": "",
+		"beforeUpload": ""
+	},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -33,13 +38,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "book_detail",
 					"pathName": "pages/book-detail/book-detail",
 					"query": "id=7"
+				},
+				{
+					"id": -1,
+					"name": "book",
+					"pathName": "pages/book/book",
+					"query": ""
 				}
 			]
 		}

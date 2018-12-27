@@ -30,7 +30,6 @@ Page({
     const likeStatus = bookModel.getLikeStatus(id);
 
     Promise.all([comment, bookDetail, likeStatus]).then(res=>{
-      console.log('res', res);
       this.setData({
         comments: res[0],
         bookDetail: res[1],
