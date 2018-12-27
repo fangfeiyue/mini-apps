@@ -21,7 +21,7 @@ Component({
     more: {
       type: String,
       value: '',
-      observer: '_loadMore'
+      observer: 'loadMore'
     }
   },
 
@@ -51,30 +51,31 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    _loadMore(){
-      if (!this.data.inputVal || this.data.booksArray.length<=0 || this.data.loading) return;
+    loadMore(){
+      if (!this.data.inputVal || this.data.booksArray.length<=0 || this._isLocked()) return;
       if (this.hasMore()){
-        this.data.loading = true;
+        this._locked();
         bookModel.search(this.getCurrStart(), this.data.inputVal).then(res => {
           this.setMoreData(res.books);
           this.setTotal(res.total);
-          this.data.loading = false;
-        });
+          this._unLocked();
+        }, () => this._unLocked());
       }
     },
+
     onCancel(){
       this.triggerEvent('cancel', {}, {});
     },
+
     onDelete(event){
       this.setData({
         searching: false
       });
     },
+
     onConfirm(event){
       const searchContent = event.detail.value || event.detail.text;
-      this.setData({
-        searching: true
-      });
+      this._showResult();
       this.initialize();
       bookModel.search(0, searchContent).then(res=>{
         this.setMoreData(res.books);
@@ -85,6 +86,30 @@ Component({
         });
         keyword.addToHistory(searchContent);
       });
+    },
+
+    _showResult(){
+      this.setData({
+        searching: true
+      });
+    },
+
+    _closeResult(){
+      this.setData({
+        searching: false
+      });
+    },
+
+    _locked(){
+      this.data.loading = true;
+    },
+
+    _unLocked(){
+      this.data.loading = false;
+    },
+
+    _isLocked(){
+      return this.data.loading ? true : false;
     }
   }
 })
