@@ -34,7 +34,8 @@ Component({
     // booksArray: [],
     historyWord: [],
     searching: false,
-    loading: false
+    loading: false,
+    loadingCenter: false
   },
 
   attached(){
@@ -76,6 +77,7 @@ Component({
     onConfirm(event){
       const searchContent = event.detail.value || event.detail.text;
       this._showResult();
+      this._showLoadingCenter();
       this.initialize();
       bookModel.search(0, searchContent).then(res=>{
         this.setMoreData(res.books);
@@ -85,6 +87,19 @@ Component({
           inputVal: searchContent
         });
         keyword.addToHistory(searchContent);
+        this._hideLoadingCenter();
+      }, () => this._hideLoadingCenter());
+    },
+
+    _showLoadingCenter(){
+      this.setData({
+        loadingCenter: true
+      });
+    },
+
+    _hideLoadingCenter(){
+      this.setData({
+        loadingCenter: false
       });
     },
 
