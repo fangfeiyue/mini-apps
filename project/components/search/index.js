@@ -75,7 +75,7 @@ Component({
       this.setData({
         searching: true
       });
-
+      this.initialize();
       bookModel.search(0, searchContent).then(res=>{
         this.setMoreData(res.books);
         this.setTotal(res.total);

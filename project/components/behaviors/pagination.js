@@ -28,8 +28,10 @@ const paginationBev = Behavior({
     },
     
     initialize(){
-      this.data.total      = null;
-      this.data.booksArray = [];
+      this.setData({
+        total: null,
+        booksArray: []
+      });
     }
   },
 });
